@@ -1,2 +1,2 @@
-# Playlist
+# PlaylistLab
 Collaborative pre-made playlists 
