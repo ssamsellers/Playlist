@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}{{name}}{% endblock %}
+{% block extra_css%}<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style/addsong.css')}}">{% endblock %}
+{% block content %}
+<div class="container-1 text-center">
+    <h1 class="display-1">Add a Song</h1>
+    <p>Make sure to <a href="/login">login</a> before adding a song!</p>
+</div>
+<form action="#" method="POST">
+    <label for="title" class = "box">Song Title:</label>
+    <input type="text" id="title" name="title"><br>
+    <label for="artist" class = "box" >Artist:</label>
+    <input type="text" id="artist" name="artist"><br>
+    <label for="playlist" class = "box">Playlist:</label>
+    <input type="text" id="playlist" name="playlist">
+    <button type="submit" class = "submit">Submit</button>
+</form>
+<p class = "bottom">Not seeing a playlist you want? <a href="/suggest">Click here</a> to send your suggestion!</p>
+</div>
+{% endblock %}

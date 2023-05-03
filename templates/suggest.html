@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{name}}{% endblock %}
+{% block extra_css%}<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style/addsong.css')}}">{% endblock %}
+{% block content %}
+<div class="container-1 text-center">
+    <h1 class="display-1">Suggest a Playlist!</h1>
+    <p>Make sure to <a href="/login">login</a> before suggesting a playlist!</p>
+</div>
+<form action="#" method="POST">
+    <label for="title" class = "box">Playlist Title:</label>
+    <input type="text" id="title" name="title"><br>
+    <label for="description" class = "box" >Description:</label>
+    <input type="text" id="description" name="description">
+    <button type="submit" class = "submit">Submit</button>
+</form>
+{% endblock %}

@@ -1,0 +1,16 @@
+.jumbotron {
+    font-weight: bold;
+    font-size: 30pt;
+    color: #082C6C;
+    background-color: #D8BFD8;
+}
+
+.box {
+    font-size: 24pt;
+    color: #082C6C;
+    padding: 20px;
+}
+
+p {
+    text-align: center;
+}

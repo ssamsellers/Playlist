@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}{{name}}{% endblock %}
+{% block extra_css%}<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style/signup.css')}}">{% endblock %}
+{% block content %}
+<div class="jumbotron">
+    <p>Sign up here to join the PlaylistLab Community!</p>
+</div>
+<form action="#" method="POST">
+    <label for="username" class = "box">Username:</label>
+    <input type="text" id="username" name="username"><br>
+    <label for="password" class = "box" >Password:</label>
+    <input type="text" id="password" name="password"><br>
+    <label for="cpassword" class = "box">Confirm Password:</label>
+    <input type="text" id="cpassword" name="cpassword">
+    <button type="submit" class = "submit">Submit</button>
+</form>
+<p>Already have an account? <a href="/login">Click here</a> to login!</p>
+{% endblock %}
