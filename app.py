@@ -11,7 +11,10 @@ app.secret_key = "1325ghtkendshthe"
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("home.html")
+    if "username" in session:
+        return render_template("home.html")
+    else:
+        return redirect(url_for('login'))
 
 @app.route("/lunch")
 def lunch():
@@ -33,17 +36,39 @@ def add():
         title = request.form["title"]
         artist = request.form["artist"]
         playlist = request.form["playlist"]
-        new_song = Songs(title=title, artist=artist, playlist_id = playlist)
+        new_song = Song(title=title, artist=artist, playlist_id = playlist)
         db_session.add(new_song)
         db_session.commit()
 
 @app.route("/signup")
 def signup():
-    return render_template("signup.html", name="Signup")
+    if request.method == "GET":
+        return render_template("signup.html", name="Signup")
+    else:
+        username = request.form["username"]
+        password = request.form["password"]
+        cpassword = request.form["cpassword"]
+        if password != cpassword:
+            flash('Passwords do not match. Try again', 'error')
+            return render_template("signup.html")
+        else:
+            new_user = User(username=username, password=password)
+            db_session.add(new_user)
+            db_session.commit()
+            session["username"] = username
+            return redirect(url_for('home'))
+    
 
 @app.route("/login")
 def login():
-    return render_template("login.html", name="Login")
+    if request.method == "GET":
+        return render_template("login.html")
+    else:
+        username = request.form["username"]
+        password = request.form["password"]
+        session["username"] = username
+        return redirect(url_for('home'))
+
 
 @app.route("/suggest")
 def suggest():
