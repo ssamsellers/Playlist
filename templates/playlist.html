@@ -1,16 +1,30 @@
+<!-- The following page is extended by the base to include the navbar and footer -->
 {% extends "base.html" %}
 {% block title %}{{name}}{% endblock %}
 {% block extra_css%}<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style/playlist.css')}}">{% endblock %}
 {% block content %}
+<!-- The following code was generated ChatGPT to format the frontend, but modified by me to add in the backend -->
     <div class="container">
       <h1 class="text-center mt-4 mb-4">{{name}} Playlist</h1>
       <div class="playlist-container">
         <div class="playlist-box">
           <div class="title-box">
             <h4>Title</h4>
+            <ul>
+              <!-- my code: printing the song titles in the playlist -->
+              {% for song in songs %}
+                <li>{{song.title}}</li>
+              {% endfor %}
+            </ul>
           </div>
           <div class="artist-box">
             <h4>Artist</h4>
+            <ul>
+              <!-- my code: printing the song artists in the playlist -->
+              {% for song in songs %}
+                <li>{{song.artist}}</li>
+              {% endfor %}
+            </ul>
           </div>
         </div>
       </div>

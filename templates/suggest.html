@@ -1,3 +1,4 @@
+<!-- The following page is extended by the base to include the navbar and footer -->
 {% extends "base.html" %}
 {% block title %}{{name}}{% endblock %}
 {% block extra_css%}<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style/addsong.css')}}">{% endblock %}
@@ -6,6 +7,7 @@
     <h1 class="display-1">Suggest a Playlist!</h1>
     <p>Make sure to <a href="/login">login</a> before suggesting a playlist!</p>
 </div>
+<!-- form for users to suggest a playlist -->
 <form action="#" method="POST">
     <label for="title" class = "box">Playlist Title:</label>
     <input type="text" id="title" name="title"><br>

@@ -59,5 +59,3 @@ class PlaylistSuggestions(Base):
     description = Column("description", TEXT, nullable=False)
     
 
-
-    

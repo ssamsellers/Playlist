@@ -1,3 +1,4 @@
+<!-- The following page is extended by the base to include the navbar and footer -->
 {% extends "base.html" %}
 {% block title %}{{name}}{% endblock %}
 {% block extra_css%}<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style/signup.css')}}">{% endblock %}
@@ -5,6 +6,7 @@
 <div class="jumbotron">
     <p>Sign up here to join the PlaylistLab Community!</p>
 </div>
+<!-- form for users to sign up -->
 <form action="#" method="POST">
     <label for="username" class = "box">Username:</label>
     <input type="text" id="username" name="username"><br>
@@ -13,6 +15,13 @@
     <label for="cpassword" class = "box">Confirm Password:</label>
     <input type="text" id="cpassword" name="cpassword">
     <button type="submit" class = "submit">Submit</button>
+    <!-- error message if passwords don't match -->
+    {% with  messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+            <p>{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 </form>
-<p>Already have an account? <a href="/login">Click here</a> to login!</p>
 {% endblock %}

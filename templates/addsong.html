@@ -1,3 +1,4 @@
+<!-- page extended by the base, which includes the navbar and footer -->
 {% extends "base.html" %}
 {% block title %}{{name}}{% endblock %}
 {% block extra_css%}<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style/addsong.css')}}">{% endblock %}
@@ -6,6 +7,7 @@
     <h1 class="display-1">Add a Song</h1>
     <p>Make sure to <a href="/login">login</a> before adding a song!</p>
 </div>
+<!-- form for user to input song title, artist, and playlist -->
 <form action="#" method="POST">
     <label for="title" class = "box">Song Title:</label>
     <input type="text" id="title" name="title"><br>
@@ -14,7 +16,7 @@
     <label for="playlist" class = "box">Playlist:</label>
     <input type="text" id="playlist" name="playlist">
     <button type="submit" class = "submit">Submit</button>
+    <p class="bottom">Note: The Getting Ready playlist should be typed in as "Ready"</p>
 </form>
-<p class = "bottom">Not seeing a playlist you want? <a href="/suggest">Click here</a> to send your suggestion!</p>
 </div>
 {% endblock %}
